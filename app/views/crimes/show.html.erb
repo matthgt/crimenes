@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @crime.category %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @crime.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @crime.description %>
+</p>
+
+<p>
+  <strong>Happened at:</strong>
+  <%= @crime.happened_at %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @crime.address %>
+</p>
+
+<p>
+  <strong>Address reference:</strong>
+  <%= @crime.address_reference %>
+</p>
+
+<p>
+  <strong>Lat long:</strong>
+  <%= @crime.lat %>,
+  <%= @crime.long %>
+</p>
+
+
+<iframe 
+  width="600" 
+  height="450" 
+  style="border:0" 
+  loading="lazy" 
+  allowfullscreen 
+  src="https://www.google.com/maps/embed/v1/place?q=<%= @crime.lat %>%2C%20<%=@crime.long%>&key=AIzaSyBbioZBqAxk2_4WLMpHv9Vt8Yp700TWgKQ"
+></iframe>
+
+<p>
+  <strong>Reporter ip:</strong>
+  <%= @crime.reporter_ip %>
+</p>
+
+<p>
+  <strong>Reporter user agent:</strong>
+  <%= @crime.reporter_user_agent %>
+</p>
+
+<p>
+  <strong>Reporter:</strong>
+  <%= @crime.reporter_id %>
+</p>
+
+<p>
+  <strong>Reporter victim relationship category:</strong>
+  <%= @crime.reporter_victim_relationship_category %>
+</p>
+
+<%= link_to 'Edit', edit_crime_path(@crime) %> |
+<%= link_to 'Back', crimes_path %>
