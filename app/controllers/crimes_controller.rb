@@ -4,14 +4,15 @@ class CrimesController < ApplicationController
   # GET /crimes or /crimes.json
   def index
     bb = params[:bb]
+    filtered_crimes = Crime.where(happened_at: 30.days.ago..Time.current)
     if bb.present?
-      @crimes = Crime.within_bounding_box(bb.split(','))
+      @crimes = filtered_crimes.within_bounding_box(bb.split(','))
     else
       location = request.location
       if location.nil?
         @crimes = []
       else
-        @crimes = Crime.near([location.latitude, location.longitude], 2)
+        @crimes = filtered_crimes.near([location.latitude, location.longitude], 2)
       end
     end
   end
