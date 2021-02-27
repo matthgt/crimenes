@@ -5,7 +5,8 @@ Geocoder.configure(
     lookup: :google,
   
     # IP address geocoding service (default :ipinfo_io)
-    ip_lookup: :maxmind,
+    ip_lookup: :ipstack,
+    ipstack: { api_key: ENV['IPSTACK_KEY'] },
   
     # to use an API key:
     api_key: ENV['GOOGLE_MAPS_API_KEY'],

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  resources :crimes
+  root to: 'maps#show'
+  resource :map, only: :show
+  resources :crimes, only: [:new, :show, :index, :create]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -3,7 +3,17 @@ class CrimesController < ApplicationController
 
   # GET /crimes or /crimes.json
   def index
-    @crimes = Crime.all
+    bb = params[:bb]
+    if bb.present?
+      @crimes = Crime.within_bounding_box(bb.split(','))
+    else
+      location = request.location
+      if location.nil?
+        @crimes = []
+      else
+        @crimes = Crime.near([location.latitude, location.longitude], 2)
+      end
+    end
   end
 
   # GET /crimes/1 or /crimes/1.json
