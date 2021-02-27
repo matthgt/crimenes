@@ -27,7 +27,8 @@ document.addEventListener("turbolinks:load", function () {
          * Elements that make up the popup.
          */
         var container = document.getElementById('popup');
-        var content = document.getElementById('popup-content');
+        var popupTitle = document.getElementById('popup-title');
+        var popupLink = document.getElementById('popup-link');
         var closer = document.getElementById('popup-closer');
 
         /**
@@ -160,7 +161,8 @@ document.addEventListener("turbolinks:load", function () {
                 }
 
                 var selectedFeature = e.selected[0].get('features')[0]
-                content.innerHTML = selectedFeature.get('title')
+                popupTitle.innerHTML = selectedFeature.get('title')
+                popupLink.href = '/crimes/' + selectedFeature.get('id')
                 overlay.setPosition(selectedFeature.getGeometry().flatCoordinates);
             } else {
                 overlay.setPosition(undefined)
