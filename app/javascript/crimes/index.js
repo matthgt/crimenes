@@ -15,7 +15,7 @@ import { Cluster, OSM, Vector as VectorSource } from 'ol/source';
 import { Tile as TileLayer, Vector as VectorLayer } from 'ol/layer';
 import { fromLonLat, toLonLat } from 'ol/proj';
 import Select from 'ol/interaction/Select';
-import click from 'ol/events/condition';
+import { click } from 'ol/events/condition';
 import GeoJSON from 'ol/format/GeoJSON';
 import { bbox } from 'ol/loadingstrategy';
 
