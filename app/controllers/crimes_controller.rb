@@ -8,11 +8,9 @@ class CrimesController < ApplicationController
     if bb.present?
       @crimes = filtered_crimes.within_bounding_box(bb.split(','))
     else
-      location = request.location
-      if location.nil?
-        @crimes = []
-      else
-        @crimes = filtered_crimes.near([location.latitude, location.longitude], 2)
+      respond_to do |format|
+        format.html { redirect_to :root }
+        format.json { @crimes = [] }
       end
     end
   end
@@ -75,6 +73,20 @@ class CrimesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def crime_params
-      params.require(:crime).permit(:category, :title, :description, :happened_at, :address, :address_reference, :reporter_ip, :reporter_user_agent, :reporter_id, :reporter, :reporter_victim_relationship_category)
+      params.require(:crime).permit(
+        :category, 
+        :title, 
+        :description, 
+        :happened_at, 
+        :address, 
+        :address_reference,
+        :lat,
+        :long,
+        :reporter_victim_relationship_category
+      ).merge(
+        reporter_ip: request.remote_ip,
+        reporter_user_agent: request.headers['User-Agent'],
+        reporter_id: reporter_id
+      )
     end
 end

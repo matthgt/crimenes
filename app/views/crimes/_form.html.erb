@@ -1,7 +1,7 @@
-<%= form_with(model: crime) do |form| %>
+<%= form_with(model: crime, class: 'form') do |form| %>
   <% if crime.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(crime.errors.count, "error") %> prohibited this crime from being saved:</h2>
+      <h2><%= pluralize(crime.errors.count, "error") %> en el reporte:</h2>
 
       <ul>
         <% crime.errors.each do |error| %>
@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :category %>
-    <%= form.text_field :category %>
+    <%= form.select :category, options_for_select([['Seleccione', '']] + Crime::CRIME_CATEGORIES.invert.to_a.sort_by(&:first), '') %>
   </div>
 
   <div class="field">
@@ -40,25 +40,17 @@
     <%= form.label :address_reference %>
     <%= form.text_field :address_reference %>
   </div>
-
-  <div class="field">
-    <%= form.label :reporter_ip %>
-    <%= form.text_field :reporter_ip %>
-  </div>
-
-  <div class="field">
-    <%= form.label :reporter_user_agent %>
-    <%= form.text_field :reporter_user_agent %>
-  </div>
-
-  <div class="field">
-    <%= form.label :reporter_id %>
-    <%= form.text_field :reporter_id %>
-  </div>
   
   <div class="field">
     <%= form.label :reporter_victim_relationship_category %>
-    <%= form.text_field :reporter_victim_relationship_category %>
+    <%= form.select :reporter_victim_relationship_category, options_for_select([['Seleccione', '']] + Crime::REPORTER_VICTIM_RELATIOnSHIP_CATEGORIES.invert.to_a, '') %>
+  </div>
+
+  <div class="field">
+    <%= label_tag 'Posición en el mapa' %>
+    <div id="mini-map"></div>
+    <%= form.hidden_field :lat, id: 'crime-lat' %>
+    <%= form.hidden_field :long, id: 'crime-long' %>
   </div>
 
   <div class="actions">

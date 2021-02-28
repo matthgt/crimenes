@@ -19,6 +19,9 @@ import { click } from 'ol/events/condition';
 import GeoJSON from 'ol/format/GeoJSON';
 import { bbox } from 'ol/loadingstrategy';
 
+import "./new"
+
+
 
 document.addEventListener("turbolinks:load", function () {
     if (document.querySelector('#map')) {

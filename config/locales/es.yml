@@ -1,0 +1,23 @@
+es:
+  activerecord:
+    models: 
+      crime: 
+        one: Crimen
+        other: Crimenes
+    attributes:
+      crime:
+        category: 'Tipo de Crimen'
+        title: 'Descripción corta'
+        description: 'Descripción larga'
+        happened_at: 'Hora y fecha en la que suciedió'
+        address: 'Dirección'
+        address_reference: 'Lugar de referencia'
+        reporter_victim_relationship_category: 'Relación con la víctima'
+    errors:
+      messages:
+        inclusion: 'debe seleccionar una opción'
+        blank: 'no debe estar en blanco'
+  helpers: 
+    submit:
+      crime:
+        create: 'Reportar'

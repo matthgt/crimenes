@@ -38,7 +38,7 @@ td {
 
 div.field,
 div.actions {
-  margin-bottom: 10px; }
+  margin-bottom: 20px; }
 
 #notice {
   color: green; }
@@ -96,4 +96,5 @@ body {
 
 #content {
   flex-grow: 1;
+  background: $color-lightgray;
 }
