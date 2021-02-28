@@ -41,11 +41,15 @@ document.addEventListener("turbolinks:load", function () {
 
         var vectorLayer = new VectorLayer({ source: source })
 
+        var centerLong = document.getElementById('ip_reverse_geocode_long').value
+        var centerLat = document.getElementById('ip_reverse_geocode_lat').value
+
         const map = new Map({
             target: 'mini-map',
             layers: [raster, vectorLayer],
             view: new View({
-                zoom: 13
+                zoom: 13,
+                center: fromLonLat([centerLong, centerLat])
             })
         });
 

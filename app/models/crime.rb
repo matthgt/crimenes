@@ -1,7 +1,4 @@
 class Crime < ApplicationRecord
-    geocoded_by :address
-    reverse_geocoded_by :lat, :long
-
     CRIME_CATEGORIES = {
         homicidio: 'Homicidio',
         asesinato: 'Asesinato',

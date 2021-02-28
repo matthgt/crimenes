@@ -1,6 +1,8 @@
 <div class='form-container'>
     <h1>Reportar Nuevo Crimen</h1>
 
+    <%= render_ip_reverse_geocode %>
+
     <%= render 'form', crime: @crime %>
 
     <%= link_to 'Regresar', :root %>

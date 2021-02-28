@@ -69,28 +69,7 @@ document.addEventListener("turbolinks:load", function () {
             }),
         });
 
-        const data = [
-            { title: 'robo', latlng: [-90.485835, 14.591553] },
-            { title: 'asalto', latlng: [-90.475835, 14.581553] },
-        ];
-        var centerLong = 0
-        var centerLat = 0
-
-        var features = new Array(data.length);
-        for (var i = 0; i < data.length; ++i) {
-            centerLong += data[i].latlng[0]
-            centerLat += data[i].latlng[1]
-            features[i] = new Feature({
-                title: data[i].title,
-                geometry: new Point(fromLonLat(data[i].latlng))
-            });
-            features[i].setStyle(defStyle)
-        }
-        centerLong = centerLong / data.length
-        centerLat = centerLat / data.length
-
         var source = new VectorSource({
-            // features: features,
             format: new GeoJSON(),
             strategy: bbox,
             url: function(a, b, c) {
@@ -142,6 +121,8 @@ document.addEventListener("turbolinks:load", function () {
             source: new OSM(),
         });
 
+        var centerLong = document.getElementById('ip_reverse_geocode_long').value
+        var centerLat = document.getElementById('ip_reverse_geocode_lat').value
 
         const map = new Map({
             target: 'map',
@@ -177,7 +158,6 @@ document.addEventListener("turbolinks:load", function () {
             console.log(pos.coords.longitude)
             console.log(pos.coords.latitude)
             map.getView().animate({ center: fromLonLat([pos.coords.longitude, pos.coords.latitude]) })
-            // map.getView().setCenter(fromLonLat([pos.coords.longitude, pos.coords.latitude]))
         }, null, { enableHighAccuracy: true })
     }
 })
