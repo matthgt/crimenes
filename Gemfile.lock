@@ -107,6 +107,7 @@ GEM
     mini_portile2 (2.5.0)
     minitest (5.14.4)
     msgpack (1.4.2)
+    newrelic_rpm (6.15.0)
     nio4r (2.5.5)
     nokogiri (1.11.1)
       mini_portile2 (~> 2.5.0)
@@ -211,6 +212,7 @@ DEPENDENCIES
   dotenv-rails
   geocoder
   jbuilder (~> 2.7)
+  newrelic_rpm
   pg (>= 0.18, < 2.0)
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
