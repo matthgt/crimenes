@@ -30,6 +30,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'geocoder'
+gem 'recaptcha'
 
 gem 'bugsnag'
 

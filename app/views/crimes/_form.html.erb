@@ -52,7 +52,11 @@
     <%= form.hidden_field :lat, id: 'crime-lat' %>
     <%= form.hidden_field :long, id: 'crime-long' %>
   </div>
-
+  
+  <div class="field">
+    <%= recaptcha_tags %>
+  </div>
+  
   <div class="actions">
     <%= form.submit %>
   </div>

@@ -4,9 +4,8 @@ class CrimesController < ApplicationController
   # GET /crimes or /crimes.json
   def index
     bb = params[:bb]
-    filtered_crimes = Crime.where(happened_at: 30.days.ago..Time.current)
     if bb.present?
-      @crimes = filtered_crimes.within_bounding_box(bb.split(','))
+      @crimes = Crime.within_bounding_box(bb.split(',')).where(happened_at: 30.days.ago..Time.current)
     else
       respond_to do |format|
         format.html { redirect_to :root }
@@ -33,7 +32,7 @@ class CrimesController < ApplicationController
     @crime = Crime.new(crime_params)
 
     respond_to do |format|
-      if @crime.save
+      if verify_recaptcha(model: @crime) && @crime.save
         format.html { redirect_to @crime, notice: "Crime was successfully created." }
         format.json { render :show, status: :created, location: @crime }
       else
