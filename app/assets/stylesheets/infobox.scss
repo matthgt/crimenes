@@ -1,0 +1,23 @@
+.info-container { 
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+    background: white;
+    border: $color-gray 1px solid;
+
+    h1 { 
+        margin: 0 0 20px 0;
+    }
+}
+
+.info-box-container {
+    display: flex;
+
+    .info-box {
+        flex-grow: 1;
+        border: $color-gray 1px solid;
+        padding: 0px 20px;
+        margin: 0 10px;
+        background: $color-lightgray;
+    }
+}
