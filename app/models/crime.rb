@@ -32,6 +32,6 @@ class Crime < ApplicationRecord
   validates :long, presence: true
 
   def category_human_readable
-    CRIME_CATEGORIES[category] || 'Otro'
+    CRIME_CATEGORIES[category.to_sym] || 'Otro'
   end
 end
