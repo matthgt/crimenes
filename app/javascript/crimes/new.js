@@ -16,7 +16,7 @@ import Select from 'ol/interaction/Select';
 import { click } from 'ol/events/condition';
 
 
-document.addEventListener("turbolinks:load", function () {
+document.addEventListener("DOMContentLoaded", function () {
     if (document.querySelector('#mini-map')) {
         const crimeLatField = document.getElementById('crime-lat')
         const crimeLongField = document.getElementById('crime-long')

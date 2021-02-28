@@ -23,7 +23,7 @@ import "./new"
 
 
 
-document.addEventListener("turbolinks:load", function () {
+document.addEventListener("DOMContentLoaded", function () {
     if (document.querySelector('#map')) {
 
         /**
