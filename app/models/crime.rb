@@ -3,12 +3,14 @@ class Crime < ApplicationRecord
   reverse_geocoded_by :lat, :long
 
   CRIME_CATEGORIES = {
-    homicidio: 'Homicidio',
+    carro_robado: 'Carro robado',
+    robo_a_carro: 'Robo a objetos en carro',
     asesinato: 'Asesinato',
     acoso: 'Acoso',
     secuestro: 'Secuestro',
     hurto: 'Robo sin violencia',
     asalto: 'Asalto',
+    asalto_a_carro: 'Asalto a carro',
     robo_con_fuerza: 'Robo forzado',
     extorsion: 'Extorsión',
     violacion: 'Violación',
