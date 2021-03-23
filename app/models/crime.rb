@@ -4,17 +4,19 @@ class Crime < ApplicationRecord
 
   CRIME_CATEGORIES = {
     carro_robado: 'Carro robado',
+    carro_robado_con_fuerza: 'Carro robado con fuerza',
     robo_a_carro: 'Robo a objetos en carro',
-    asesinato: 'Asesinato',
-    acoso: 'Acoso',
-    secuestro: 'Secuestro',
-    hurto: 'Robo sin violencia',
     asalto: 'Asalto',
-    asalto_a_carro: 'Asalto a carro',
     robo_con_fuerza: 'Robo forzado',
+    hurto: 'Robo sin violencia',
+    asalto_a_casa: 'Asalto a casa',
+    robo_a_casa: 'Robo a casa'
     extorsion: 'Extorsión',
+    asesinato: 'Asesinato',
     violacion: 'Violación',
+    acoso: 'Acoso',
     acoso_sexual: 'Acoso sexual',
+    secuestro: 'Secuestro',
   }.freeze
 
   REPORTER_VICTIM_RELATIOnSHIP_CATEGORIES = {
