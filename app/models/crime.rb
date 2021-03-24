@@ -10,13 +10,13 @@ class Crime < ApplicationRecord
     robo_con_fuerza: 'Robo forzado',
     hurto: 'Robo sin violencia',
     asalto_a_casa: 'Asalto a casa',
-    robo_a_casa: 'Robo a casa'
+    robo_a_casa: 'Robo a casa',
     extorsion: 'Extorsión',
     asesinato: 'Asesinato',
     violacion: 'Violación',
     acoso: 'Acoso',
     acoso_sexual: 'Acoso sexual',
-    secuestro: 'Secuestro',
+    secuestro: 'Secuestro'
   }.freeze
 
   REPORTER_VICTIM_RELATIOnSHIP_CATEGORIES = {
